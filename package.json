@@ -27,7 +27,7 @@
 	"keywords": ["react", "typescript", "xterm.js", "xterm"],
 	"author": "Robert Harbison",
 	"license": "MIT",
-	"files": ["dist"],
+	"files": ["lib"],
 	"browserslist": ["last 2 version", ">1%", "not dead"],
 	"dependencies": {
 		"prop-types": "^15.8.1",
