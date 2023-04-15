@@ -2,12 +2,13 @@
 	"name": "xterm-for-react",
 	"version": "1.1.0",
 	"description": "A React wrapper made for XTerm.js",
-	"main": "dist/bundle.js",
-	"types": "dist/src/index.d.ts",
+	"main": "lib/bundle.js",
+	"types": "lib/index.d.ts",
 	"scripts": {
 		"start": "webpack-dev-server --config webpack.dev.config.js",
 		"clean:start": "clean && start",
 		"clean": "rimraf dist",
+		"build:lib": "tsc --module esnext --declaration --outDir ./lib/esm",
 		"build:dev": "npm run clean && webpack --config webpack.dev.config.js",
 		"build:prod": "npm run clean && webpack --config webpack.prod.config.js",
 		"lint": "eslint --ext=jsx,js,tsx,ts src",
@@ -16,34 +17,18 @@
 		"test:watch": "jest --watch"
 	},
 	"lint-staged": {
-		"{src,test}/**/*.{json,css,md}": [
-			"prettier --config ./.prettierrc --write"
-		],
-		"{src,test}/**/*.{js,ts,tsx}": [
-			"prettier --config ./.prettierrc --write",
-			"eslint --ext=jsx,js,ts,tsx --fix src"
-		]
+		"{src,test}/**/*.{json,css,md}": ["prettier --config ./.prettierrc --write"],
+		"{src,test}/**/*.{js,ts,tsx}": ["prettier --config ./.prettierrc --write", "eslint --ext=jsx,js,ts,tsx --fix src"]
 	},
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/robert-harbison/xterm-for-react"
 	},
-	"keywords": [
-		"react",
-		"typescript",
-		"xterm.js",
-		"xterm"
-	],
+	"keywords": ["react", "typescript", "xterm.js", "xterm"],
 	"author": "Robert Harbison",
 	"license": "MIT",
-	"files": [
-		"dist"
-	],
-	"browserslist": [
-		"last 2 version",
-		">1%",
-		"not dead"
-	],
+	"files": ["dist"],
+	"browserslist": ["last 2 version", ">1%", "not dead"],
 	"dependencies": {
 		"prop-types": "^15.8.1",
 		"xterm": "^5.1.0"
